@@ -13,7 +13,11 @@ prepare_data_frame_date <- function(nh3_merged, to_local = TRUE,
   nh3_merged$date <- as.POSIXct(strptime(nh3_merged$date,
                                          format = "%Y-%m-%d %H:%M:%OS"),
                                 tz = "etc/UTC")
-  nh3_merged <- nh3_merged[c("date", "NH3_30s")]
+
+  to_remove <-  col_names %in%  c("DATE", "TIME")
+  final_col_names <- c("date", col_names[!to_remove])
+
+  nh3_merged <- nh3_merged[final_col_names]
 
   if (to_local){
     attributes(nh3_merged$date)$tzone <- "America/Sao_Paulo"
