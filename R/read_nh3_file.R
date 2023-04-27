@@ -2,10 +2,10 @@
 #'
 #' @param file_path
 #'
-#' @return data.frame#'
+#' @return data.table
 #' @noRd
 #' @keywords internal
 read_nh3_file <- function(file_path){
-  nh3_df <- data.table::fread(file_path, header = T, sep = " ", dec = ".")
-  return(nh3_df)
+  nh3_dt <- data.table::fread(file_path, header = T, sep = " ", dec = ".")
+  return(nh3_dt)
 }
