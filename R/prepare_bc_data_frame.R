@@ -1,4 +1,4 @@
-#' Prepare data frame to be openair friendly
+#' Prepare BC data frame to be openair friendly
 #'
 #' @param bc_merged Merged data.tables into one data.table.
 #' @param bc_columns Boolean, if TRUE, returns only BC colums in ug/m3.
