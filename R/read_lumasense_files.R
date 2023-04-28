@@ -14,7 +14,8 @@
 #' }
 read_lumasense_files <- function(lumasense_folder_path, pol_columns = TRUE){
   luma_files <- dir(lumasense_folder_path, full.names = TRUE, pattern = ".csv")
-  luma_data <- lapply(luma_files, read_luma_file)
+  luma_data <- lapply(luma_files, data.table::fread,
+                      header = TRUE, sep = ";", dec = ".")
   luma_merged <- data.table::rbindlist(luma_data)
 
   luma <- prepare_luma_data_frame(luma_merged, pol_columns)

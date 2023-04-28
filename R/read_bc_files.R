@@ -14,7 +14,9 @@
 #' }
 read_bc_files <- function(bc_folder_path, bc_columns = TRUE){
   bc_files <- dir(bc_folder_path, full.names = TRUE, pattern = ".dat")
-  bc_data <- lapply(bc_files, read_bc_file)
+  bc_data <- lapply(bc_files, data.table::fread,
+                    header = FALSE, skip = 8, sep = " ",
+                    dec = ".")
   bc_merged <- data.table::rbindlist(bc_data)
 
   bc <- prepare_bc_data_frame(bc_merged, bc_columns)
