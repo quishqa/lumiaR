@@ -57,4 +57,18 @@ bc_2022 <- read_nh3_files(bc_dir_path)
 It returns a data frame with a `date` column as `POSIXct` and the BC columns. 
 If you want all the metadata, just add the argument `bc_columns=FALSE`.
 
+### Loading Lumasense data
+
+To load the Lumasense data, we used the function `read_lumasense_files`. 
+It has the same philosophy of previos functions.
+
+```r
+library(lumiaR)
+lumiar_dir_path <- "/home/myUser/Data/Lumasense"
+lumiar_data <- read_lumasense_files(luma_dir_path)
+```
+
+By default, it returns `date`, `co`, `co2`, and `ethanol` columns. If you want
+all the metadata, add `pol_columns=FALSE` argument.
+
 
