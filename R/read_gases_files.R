@@ -1,3 +1,18 @@
+#' Load and merge single data frame XLS gases file.
+#'
+#' @param gases_folder_path Folder with the xls files.
+#' @param pattern Pattern to read the xls files. "Hour", "15 Minutes",
+#' "Minutes".
+#'
+#' @return data.frame
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#' # Load march hourly data files
+#' gases_folder <- "/home/myUser/Data/gases/march"
+#' gases <- read_gases_files(gases_folder, "Hour")
+#' }
 read_gases_files <- function(gases_folder_path, pattern){
   xls_files <- dir(gases_folder_path, recursive = F, pattern = pattern,
                    full.names = T)

@@ -71,4 +71,17 @@ lumiar_data <- read_lumasense_files(luma_dir_path)
 By default, it returns `date`, `co`, `co2`, and `ethanol` columns. If you want
 all the metadata, add `pol_columns=FALSE` argument.
 
+### Loading gases data
 
+The gases data is in `xlsx` format. To load this data, 
+we use `read_gases_files`.
+
+```r
+library(lumiaR)
+gases_folder_path <- "/home/myUser/Data/gases/march"
+gases_hour <- read_gases_files(gases_folder_path)
+```
+
+Data is available in different temporal resolution. We used the argument
+`pattern`. `pattern` accepts `"Hour", "15 Minutes", and "Minute"`. By default
+`pattern = "Hour"`.

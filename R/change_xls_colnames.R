@@ -1,3 +1,12 @@
+#' Change columns name from xls file
+#'
+#' @param xls merged xls data frame
+#' @param pattern xls file pattern. "Hour", "15 Minutes", or "Minute".
+#'
+#' @return data frame with better columns name.
+#' @noRd
+#'
+#' @keywords internal
 change_xls_colnames <- function(xls, pattern){
   if (pattern == "Hour"){
     col_pattern <- "Hr"

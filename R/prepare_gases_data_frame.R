@@ -1,5 +1,13 @@
-prepare_gases_data_frame <- function(xls_gases){
-  xls <- as.data.frame(xls_gases)
+#' Prepare xls data frames to be openair friendly
+#'
+#' @param xls_merged merged xls data frame into one data.table.
+#'
+#' @return data frame
+#' @noRd
+#'
+#' @keywords internal
+prepare_gases_data_frame <- function(xls_merged){
+  xls <- as.data.frame(xls_merged)
   xls[, 2:ncol(xls)] <- sapply(xls[, 2:ncol(xls)],
                                gsub,
                                pattern = ",",
