@@ -4,12 +4,14 @@
 \alias{read_lumasense_files}
 \title{Load and merge into single data frame Lumasense files}
 \usage{
-read_lumasense_files(lumasense_folder_path, pol_columns = TRUE)
+read_lumasense_files(lumasense_folder_path, pol_columns = TRUE, hour = FALSE)
 }
 \arguments{
-\item{lumasense_folder_path}{Folder were Lumasense files are located}
+\item{lumasense_folder_path}{Folder were Lumasense files are located.}
 
 \item{pol_columns}{Bool. If TRUE, it returns CO, CO2, and C2H5OH.}
+
+\item{hour}{Bool. If TRUE, it returns hourly averages.}
 }
 \value{
 data.frame

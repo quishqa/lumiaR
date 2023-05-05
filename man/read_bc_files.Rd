@@ -4,12 +4,14 @@
 \alias{read_bc_files}
 \title{Load and merge into single data frame BC files}
 \usage{
-read_bc_files(bc_folder_path, bc_columns = TRUE)
+read_bc_files(bc_folder_path, bc_columns = TRUE, hour = FALSE)
 }
 \arguments{
-\item{bc_folder_path}{Upper level folder with BC data}
+\item{bc_folder_path}{Upper level folder with BC data.}
 
 \item{bc_columns}{Bool. If TRUE, returns data.frame with BC columns.}
+
+\item{hour}{Bool. If TRUE, it returns hourly averages.}
 }
 \value{
 data.frame

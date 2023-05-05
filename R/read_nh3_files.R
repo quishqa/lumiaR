@@ -4,6 +4,7 @@
 #'
 #' @param nh3_folder_path Upper level folder path with month and days folder.
 #' @param to_local Change to America/Sao_Paulo time zone.
+#' @param hour Bool. If TRUE, It returns hourly averages.
 #' @param col_names Columns to retrieve from raw data.
 #'
 #' @return data.frame
@@ -15,7 +16,7 @@
 #' nh3_dic_path <- "~/lumiar_data/2022/12/"
 #' nh3_dic22 <- read_nh3_files(nh3_dic_path)
 #' }
-read_nh3_files <- function(nh3_folder_path, to_local=TRUE,
+read_nh3_files <- function(nh3_folder_path, to_local=TRUE, hour=FALSE,
                            col_names = c("DATE", "TIME", "NH3_30s")){
   nh3_files <- dir(nh3_folder_path, recursive = T,
                    full.names = T, pattern = ".dat")
@@ -25,5 +26,8 @@ read_nh3_files <- function(nh3_folder_path, to_local=TRUE,
 
   nh3 <- prepare_data_frame_date(nh3_merged, to_local,
                                  col_names)
+  if (hour){
+    return(openair::timeAverage(nh3, avg.time = "day"))
+  }
   return(nh3)
 }

@@ -7,6 +7,7 @@
 read_nh3_files(
   nh3_folder_path,
   to_local = TRUE,
+  hour = FALSE,
   col_names = c("DATE", "TIME", "NH3_30s")
 )
 }
@@ -14,6 +15,8 @@ read_nh3_files(
 \item{nh3_folder_path}{Upper level folder path with month and days folder.}
 
 \item{to_local}{Change to America/Sao_Paulo time zone.}
+
+\item{hour}{Bool. If TRUE, It returns hourly averages.}
 
 \item{col_names}{Columns to retrieve from raw data.}
 }
