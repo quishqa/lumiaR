@@ -42,6 +42,8 @@ to local time, just add the argument `to_local = FALSE` inside the function.
 Also, if you want other information from the NH3 files, just add the argument 
 `col_names` and put the column names in a vector to retrive.
 
+You can also add `hour = TRUE` to return hourly averages.
+
 ### Loading BC data
 
 To load the BC data, we used the function `read_bc_files`. The process is the 
@@ -57,6 +59,8 @@ bc_2022 <- read_nh3_files(bc_dir_path)
 It returns a data frame with a `date` column as `POSIXct` and the BC columns. 
 If you want all the metadata, just add the argument `bc_columns=FALSE`.
 
+You can also add `hour = TRUE` to return hourly averages.
+
 ### Loading Lumasense data
 
 To load the Lumasense data, we used the function `read_lumasense_files`. 
@@ -70,6 +74,8 @@ lumiar_data <- read_lumasense_files(luma_dir_path)
 
 By default, it returns `date`, `co`, `co2`, and `ethanol` columns. If you want
 all the metadata, add `pol_columns=FALSE` argument.
+
+You can also add `hour = TRUE` to return hourly averages.
 
 ### Loading gases data
 
