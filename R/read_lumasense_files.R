@@ -16,6 +16,11 @@
 read_lumasense_files <- function(lumasense_folder_path, pol_columns = TRUE,
                                  hour = FALSE){
   luma_files <- dir(lumasense_folder_path, full.names = TRUE, pattern = ".csv")
+
+  if (length(luma_files) == 0){
+    stop("Wrong folder path or there is no files in this folder.")
+  }
+
   luma_data <- lapply(luma_files, data.table::fread,
                       header = TRUE, sep = ";", dec = ".")
   luma_merged <- data.table::rbindlist(luma_data)

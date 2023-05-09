@@ -20,6 +20,11 @@ read_nh3_files <- function(nh3_folder_path, to_local=TRUE, hour=FALSE,
                            col_names = c("DATE", "TIME", "NH3_30s")){
   nh3_files <- dir(nh3_folder_path, recursive = T,
                    full.names = T, pattern = ".dat")
+
+  if (length(nh3_files) == 0){
+    stop("Wrong folder path or there is no files in this folder.")
+  }
+
   nh3_data <- lapply(nh3_files, data.table::fread,
                      header = T, sep = " ", dec = ".")
   nh3_merged <- data.table::rbindlist(nh3_data)

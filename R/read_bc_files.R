@@ -17,6 +17,11 @@
 read_bc_files <- function(bc_folder_path, bc_columns = TRUE,
                           hour = FALSE){
   bc_files <- dir(bc_folder_path, full.names = TRUE, pattern = ".dat")
+
+  if (length(bc_files) == 0){
+    stop("Wrong folder path or there is no files in this folder.")
+  }
+
   bc_data <- lapply(bc_files, read_bc_file)
   bc_merged <- data.table::rbindlist(bc_data)
 

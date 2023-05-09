@@ -16,6 +16,11 @@
 read_gases_files <- function(gases_folder_path, pattern){
   xls_files <- dir(gases_folder_path, recursive = F, pattern = pattern,
                    full.names = T)
+
+  if (length(xls_files) == 0){
+    stop("Wrong folder path or there is no files in this folder.")
+  }
+
   xls_gases <- lapply(xls_files, readxl::read_excel)
   xls_gases <- data.table::rbindlist(xls_gases)
   xls_gases <- change_xls_colnames(xls_gases, pattern)
