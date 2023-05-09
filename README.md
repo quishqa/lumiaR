@@ -66,7 +66,7 @@ bc_2022 <- read_bc_files(bc_dir_path)
 ```
 
 It returns a data frame with a `date` column as `POSIXct` and the BC columns 
-in **ug/m3**. If you want all the metadata,
+in **ug/m3**, BB colum in **(%)**. If you want all the metadata,
 just add the argument `bc_columns=FALSE`.
 
 You can also add `hour = TRUE` to return hourly averages.

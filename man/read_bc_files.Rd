@@ -9,7 +9,8 @@ read_bc_files(bc_folder_path, bc_columns = TRUE, hour = FALSE)
 \arguments{
 \item{bc_folder_path}{Upper level folder with BC data.}
 
-\item{bc_columns}{Bool. If TRUE, returns data.frame with BC columns.}
+\item{bc_columns}{Bool. If TRUE, returns data.frame with BC columns.
+BC1-7 are in ug/m3 and BB column in (\%).}
 
 \item{hour}{Bool. If TRUE, it returns hourly averages.}
 }

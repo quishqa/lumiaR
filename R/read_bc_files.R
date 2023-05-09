@@ -2,6 +2,7 @@
 #'
 #' @param bc_folder_path Upper level folder with BC data.
 #' @param bc_columns Bool. If TRUE, returns data.frame with BC columns.
+#'   BC1-7 are in ug/m3 and BB column in (%).
 #' @param hour Bool. If TRUE, it returns hourly averages.
 #'
 #' @return data.frame
