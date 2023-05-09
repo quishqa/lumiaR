@@ -27,8 +27,9 @@ devtools::install_github("quishqa/lumiaR")
 
 All the functions return a data frame ready to be used with 
 [`openair`](https://github.com/davidcarslaw/openair).
-Because the main input is the directory path where the file is located,
-is important to doblecheck this path.
+Because the main input is the **complete directory path**
+where the file is located, It is important to doblecheck this path.
+
 
 ### Loading NH3 data
 
