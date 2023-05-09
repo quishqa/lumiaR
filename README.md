@@ -22,11 +22,16 @@ devtools::install_github("quishqa/lumiaR")
 
 ## How to use
 
+All the functions return a data frame ready to be used with 
+[`openair`](https://github.com/davidcarslaw/openair).
+Because the main input is the directory path where the file is located,
+is important to doblecheck this path.
+
 ### Loading NH3 data
 
-To load the NH3 data, we use the function `read_nh3_files`. In this example,
-we read the data for December, 2022. It will return a data frame with `date` 
-and `NH3` columns.
+To load and merge the NH3 `.dat` files, we use the function `read_nh3_files`.
+In this example, we read the data for December, 2022. 
+It will return a data frame with `date` and `NH3` columns.
 
 ```r
 library(lumiaR)
@@ -42,11 +47,15 @@ to local time, just add the argument `to_local = FALSE` inside the function.
 Also, if you want other information from the NH3 files, just add the argument 
 `col_names` and put the column names in a vector to retrive.
 
-You can also add `hour = TRUE` to return hourly averages.
+You can also add `hour = TRUE` to return hourly averages:
+
+```r
+nh3_dic_hour <- read_nh3_files(nh3_dic_path, hour = TRUE)
+```
 
 ### Loading BC data
 
-To load the BC data, we used the function `read_bc_files`. The process is the 
+To load the BC `.dat` files, we used the function `read_bc_files`. The process is the 
 same as `read_nh3_files`. You just need the folder with the data:
 
 ```r
@@ -61,9 +70,14 @@ If you want all the metadata, just add the argument `bc_columns=FALSE`.
 
 You can also add `hour = TRUE` to return hourly averages.
 
+```r
+bc_2022_hour <- read_bc_files(bc_dir_path, hour = TRUE)
+```
+
+
 ### Loading Lumasense data
 
-To load the Lumasense data, we used the function `read_lumasense_files`. 
+To load the Lumasense `.csv` files, we used the function `read_lumasense_files`. 
 It has the same philosophy of previos functions.
 
 ```r
