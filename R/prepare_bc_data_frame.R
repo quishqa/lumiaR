@@ -32,7 +32,7 @@ prepare_bc_data_frame <- function(bc_merged, bc_columns = TRUE){
     bc_vars <- c(paste0("BC", seq(1,7)), "BB")
     bc_columns <- c("date", bc_vars)
     bc <- bc_merged[bc_columns]
-    bc[, bc_vars] <- bc[, bc_vars] / 1000
+    bc[, bc_vars[1:7]] <- bc[, bc_vars[1:7]] / 1000
     return(bc)
   }
   return(bc_merged)
