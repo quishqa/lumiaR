@@ -18,7 +18,11 @@ read_gases_files <- function(gases_folder_path, pattern){
                    full.names = T)
 
   if (length(xls_files) == 0){
-    stop("Wrong folder path or there is no files in this folder.")
+    if (dir.exists(gases_folder_path)){
+      stop("There is no files in this folder.")
+    } else {
+      stop("This folder path does not exit. Please double-check.")
+    }
   }
 
   xls_gases <- lapply(xls_files, readxl::read_excel)

@@ -22,7 +22,11 @@ read_nh3_files <- function(nh3_folder_path, to_local=TRUE, hour=FALSE,
                    full.names = T, pattern = ".dat")
 
   if (length(nh3_files) == 0){
-    stop("Wrong folder path or there is no files in this folder.")
+    if (dir.exists(nh3_folder_path)){
+      stop("There is no files in this folder.")
+    } else {
+      stop("This folder path does not exist. Please double-check")
+    }
   }
 
   nh3_data <- lapply(nh3_files, data.table::fread,

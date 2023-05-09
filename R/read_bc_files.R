@@ -19,7 +19,11 @@ read_bc_files <- function(bc_folder_path, bc_columns = TRUE,
   bc_files <- dir(bc_folder_path, full.names = TRUE, pattern = ".dat")
 
   if (length(bc_files) == 0){
-    stop("Wrong folder path or there is no files in this folder.")
+    if (dir.exists(bc_folder_path)){
+      stop("There is no files in this folder.")
+    } else {
+      stop("This folder path does not exist. Please double-check.")
+    }
   }
 
   bc_data <- lapply(bc_files, read_bc_file)

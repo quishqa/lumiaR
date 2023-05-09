@@ -18,7 +18,11 @@ read_lumasense_files <- function(lumasense_folder_path, pol_columns = TRUE,
   luma_files <- dir(lumasense_folder_path, full.names = TRUE, pattern = ".csv")
 
   if (length(luma_files) == 0){
-    stop("Wrong folder path or there is no files in this folder.")
+    if (dir.exists(lumasense_folder_path)){
+      stop("There is no files in this folder.")
+    } else {
+      stop("This folder path does not exist. Please double-check.")
+    }
   }
 
   luma_data <- lapply(luma_files, data.table::fread,
