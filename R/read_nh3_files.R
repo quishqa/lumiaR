@@ -36,7 +36,7 @@ read_nh3_files <- function(nh3_folder_path, to_local=TRUE, hour=FALSE,
   nh3 <- prepare_data_frame_date(nh3_merged, to_local,
                                  col_names)
   if (hour){
-    return(openair::timeAverage(nh3, avg.time = "day"))
+    return(openair::timeAverage(nh3, avg.time = "hour"))
   }
   return(nh3)
 }
